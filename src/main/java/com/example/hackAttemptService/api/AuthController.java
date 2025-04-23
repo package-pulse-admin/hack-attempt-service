@@ -17,7 +17,7 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> logic(@RequestBody LoginRequest request) {
+    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
         User byUsername = userService.findUserByUserName(request.getUsername());
         if (byUsername != null && byUsername.getPassword().equals(request.getPassword())) {
             return ResponseEntity.ok("Login successful");

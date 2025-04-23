@@ -3,6 +3,8 @@ package com.example.hackAttemptService.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class User {
@@ -25,5 +27,8 @@ public class User {
 
     @Column
     private int code;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Password> passwords;
 
 }

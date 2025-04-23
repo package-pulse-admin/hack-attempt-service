@@ -3,6 +3,7 @@ package com.example.hackAttemptService.service;
 import com.example.hackAttemptService.model.BruteForceRequest;
 import com.example.hackAttemptService.model.BruteForceResult;
 import com.example.hackAttemptService.model.LoginRequest;
+import com.example.hackAttemptService.model.Password;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,15 @@ import java.util.Random;
 public class PasswordService {
 
     private final RestTemplate restTemplate = new RestTemplate();
+    private final PasswordRepository passwordRepository;
+
+    public List<Password> getPasswordsByUsername(String username) {
+        return passwordRepository.findByUserUsername(username);
+    }
+
+    public void savePassword(Password password) {
+        passwordRepository.save(password);
+    }
 
     // ========== 1. SMART ATTACK ==========
     public BruteForceResult performSmartAttack(BruteForceRequest bruteForceRequest, int baseChancePercent) {
