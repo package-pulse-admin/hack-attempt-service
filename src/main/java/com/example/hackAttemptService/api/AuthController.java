@@ -2,7 +2,6 @@ package com.example.hackAttemptService.api;
 
 import com.example.hackAttemptService.model.LoginRequest;
 import com.example.hackAttemptService.model.User;
-import com.example.hackAttemptService.service.UserRepository;
 import com.example.hackAttemptService.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
 
     private final UserService userService;
