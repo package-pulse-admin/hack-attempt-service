@@ -29,6 +29,10 @@ public class PasswordService {
         passwordRepository.save(password);
     }
 
+    public void deletePassword(Password password) {
+        passwordRepository.delete(password);
+    }
+
     // ========== 1. SMART ATTACK ==========
     public BruteForceResult performSmartAttack(BruteForceRequest bruteForceRequest, int baseChancePercent) {
         List<String> dictionary = PasswordLoader.loadFromResource("100k-passwords.txt");
