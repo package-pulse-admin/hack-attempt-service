@@ -1,5 +1,7 @@
 package com.example.hackAttemptService.api;
 
+import com.example.hackAttemptService.api.config.JwtUtil;
+import com.example.hackAttemptService.model.JwtResponse;
 import com.example.hackAttemptService.model.LoginRequest;
 import com.example.hackAttemptService.model.User;
 import com.example.hackAttemptService.service.UserService;
@@ -15,12 +17,14 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final UserService userService;
+    private final JwtUtil jwtUtil;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
-        User byUsername = userService.findUserByUserName(request.getUsername());
-        if (byUsername != null && byUsername.getPassword().equals(request.getPassword())) {
-            return ResponseEntity.ok("Login successful");
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        User user = userService.findUserByUserName(request.getUsername());
+        if (user != null && user.getPassword().equals(request.getPassword())) {
+            String token = jwtUtil.generateToken(user.getUsername());
+            return ResponseEntity.ok(new JwtResponse("Bearer", token));
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid PASSWORD");
     }
