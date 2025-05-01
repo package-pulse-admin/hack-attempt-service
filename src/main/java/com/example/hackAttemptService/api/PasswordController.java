@@ -16,7 +16,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/library")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 public class PasswordController {
 
     private final PasswordService passwordService;
