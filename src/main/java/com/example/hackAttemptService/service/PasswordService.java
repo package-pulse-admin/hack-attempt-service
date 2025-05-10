@@ -54,7 +54,7 @@ public class PasswordService {
 
             if (tryLogin(bruteForceRequest, passwordToTry)) {
                 long duration = System.currentTimeMillis() - start;
-                System.out.println("✅ SUCCESS! Found password: '" + passwordToTry + "'");
+                System.out.println("SUCCESS! Found password: '" + passwordToTry + "'");
                 return new BruteForceResult(true, passwordToTry, attempts, duration);
             }
         }
@@ -96,13 +96,13 @@ public class PasswordService {
 
             if (tryLogin(request, password)) {
                 long duration = System.currentTimeMillis() - start;
-                System.out.println("✅ SUCCESS! Found password: '" + password + "'");
+                System.out.println("SUCCESS! Found password: '" + password + "'");
                 return new BruteForceResult(true, password, attempts, duration);
             }
         }
 
         long duration = System.currentTimeMillis() - start;
-        System.out.println("❌ Attack failed after " + attempts + " attempts.");
+        System.out.println("Attack failed after " + attempts + " attempts.");
         return new BruteForceResult(false, null, attempts, duration);
     }
 
@@ -112,7 +112,7 @@ public class PasswordService {
             login.setUsername(request.getUsername());
             login.setPassword(password);
 
-            System.out.println("🔍 Attempting password: '" + password + "'");
+            System.out.println("Attempting password: '" + password + "'");
 
             // Send the login request
             ResponseEntity<String> response = restTemplate.postForEntity(
@@ -126,7 +126,7 @@ public class PasswordService {
             return false;
         } catch (Exception e) {
             // Handle other exceptions
-            System.err.println("⚠️ Error with '" + password + "': " + e.getMessage());
+            System.err.println("Error with '" + password + "': " + e.getMessage());
             return false;
         }
     }
