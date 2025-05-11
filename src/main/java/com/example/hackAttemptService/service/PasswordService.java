@@ -21,6 +21,11 @@ public class PasswordService {
     private final PasswordHistoryRepository passwordHistoryRepository;
     private final UserRepository userRepository;
 
+
+    public List<PasswordHistory> findByUser(User user){
+        return passwordHistoryRepository.findAllByUser(user);
+    }
+
     public Password findByUserAndAppName(User user, String appName){
         return passwordRepository.findByUserAndAppName(user, appName);
     }

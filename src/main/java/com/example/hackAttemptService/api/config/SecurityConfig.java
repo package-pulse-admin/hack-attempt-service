@@ -22,6 +22,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/library/**").authenticated()
+                        .requestMatchers("/history/**").authenticated()
                 )
                 .addFilterBefore(new JwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
 

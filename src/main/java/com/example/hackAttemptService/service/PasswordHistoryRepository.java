@@ -4,5 +4,8 @@ import com.example.hackAttemptService.model.PasswordHistory;
 import com.example.hackAttemptService.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PasswordHistoryRepository  extends JpaRepository<PasswordHistory, Long> {
+import java.util.List;
+
+public interface PasswordHistoryRepository extends JpaRepository<PasswordHistory, Long> {
+        List<PasswordHistory> findAllByUser (User user);
 }
