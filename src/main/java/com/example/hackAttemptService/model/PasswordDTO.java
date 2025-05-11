@@ -7,4 +7,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PasswordDTO {
     private String value;
+    private String appName;
+    private String passwordLabel;
 }

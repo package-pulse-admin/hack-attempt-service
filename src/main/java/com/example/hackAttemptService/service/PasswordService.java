@@ -1,10 +1,8 @@
 package com.example.hackAttemptService.service;
 
-import com.example.hackAttemptService.model.BruteForceRequest;
-import com.example.hackAttemptService.model.BruteForceResult;
-import com.example.hackAttemptService.model.LoginRequest;
-import com.example.hackAttemptService.model.Password;
+import com.example.hackAttemptService.model.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,6 +18,30 @@ public class PasswordService {
 
     private final RestTemplate restTemplate = new RestTemplate();
     private final PasswordRepository passwordRepository;
+    private final PasswordHistoryRepository passwordHistoryRepository;
+    private final UserRepository userRepository;
+
+    public Password findByUserAndAppName(User user, String appName){
+        return passwordRepository.findByUserAndAppName(user, appName);
+    }
+
+    public void saveHistory(PasswordHistory passwordHistory){
+        passwordHistoryRepository.save(passwordHistory);
+    }
+
+    public List<Password> getPasswordsByUsernameAndFilter(String username, String appName, String passwordLabel) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found");
+        }
+
+        Specification<Password> spec = Specification.where(PasswordSpecification.hasAppName(appName))
+                .and(PasswordSpecification.hasPasswordLabel(passwordLabel))
+                .and(PasswordSpecification.belongsToUser(user));
+
+        return passwordRepository.findAll(spec);
+    }
+
 
     public List<Password> getPasswordsByUsername(String username) {
         return passwordRepository.findByUserUsername(username);
@@ -60,7 +82,7 @@ public class PasswordService {
         }
 
         long duration = System.currentTimeMillis() - start;
-        System.out.println("❌ Attack failed after " + attempts + " attempts.");
+        System.out.println("Attack failed after " + attempts + " attempts.");
         return new BruteForceResult(false, null, attempts, duration);
     }
 

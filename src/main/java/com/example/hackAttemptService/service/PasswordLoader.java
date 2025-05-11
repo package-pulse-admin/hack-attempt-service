@@ -12,7 +12,7 @@ public class PasswordLoader {
     public static List<String> loadFromResource(String filename) {
         try (InputStream is = PasswordLoader.class.getClassLoader().getResourceAsStream(filename)) {
             if (is == null) {
-                System.err.println("❌ File not found: " + filename);
+                System.err.println("File not found: " + filename);
                 return Collections.emptyList();
             }
 
@@ -21,7 +21,7 @@ public class PasswordLoader {
                     .collect(Collectors.toList());
 
         } catch (Exception e) {
-            System.err.println("⚠️ Error loading file '" + filename + "': " + e.getMessage());
+            System.err.println("Error loading file '" + filename + "': " + e.getMessage());
             return Collections.emptyList();
         }
     }

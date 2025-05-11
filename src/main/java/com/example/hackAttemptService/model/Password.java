@@ -14,16 +14,29 @@ public class Password {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String password_value;
+    @Column(name = "password_value")
+    private String passwordValue;
+
+    @Column(name = "app_name", nullable = false)
+    private String appName;
+
+    @Column(name = "password_label")
+    private String passwordLabel;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
 
-    public Password(String password_value, User user) {
-        this.password_value = password_value;
+    public Password(String passwordValue, User user) {
+        this.passwordValue = passwordValue;
+        this.user = user;
+    }
+
+    public Password(String passwordValue, String appName, String passwordLabel, User user) {
+        this.passwordValue = passwordValue;
+        this.appName = appName;
+        this.passwordLabel = passwordLabel;
         this.user = user;
     }
 }
