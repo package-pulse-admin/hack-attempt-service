@@ -38,7 +38,7 @@ public class PasswordController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
 
-        Password password = new Password(passwordDto.getValue(), user);
+        Password password = new Password(passwordDto.getValue(),passwordDto.getAppName(), passwordDto.getPasswordLabel(), user);
         passwordService.savePassword(password);
         return ResponseEntity.status(HttpStatus.CREATED).body("Password added successfully");
     }
@@ -52,7 +52,7 @@ public class PasswordController {
 
         Password currentPassword = passwordService.findByUserAndAppName(user, passwordDto.getAppName());
         if (currentPassword == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Password for this app not found");
+            currentPassword = new Password(passwordDto.getValue(), passwordDto.getAppName(), passwordDto.getPasswordLabel(), user);
         }
 
         PasswordHistory passwordHistory = new PasswordHistory(

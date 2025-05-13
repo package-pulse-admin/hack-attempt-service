@@ -17,7 +17,7 @@ public class Password {
     @Column(name = "password_value")
     private String passwordValue;
 
-    @Column(name = "app_name", nullable = false)
+    @Column(name = "app_name")
     private String appName;
 
     @Column(name = "password_label")
