@@ -31,6 +31,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody User request) {
         userService.save(request);
+        //TODO add email check
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
