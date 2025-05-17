@@ -1,4 +1,4 @@
-package com.example.hackAttemptService.model;
+package com.example.hackAttemptService.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

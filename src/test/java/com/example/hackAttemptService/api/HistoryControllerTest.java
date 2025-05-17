@@ -1,7 +1,7 @@
 package com.example.hackAttemptService.api;
 
-import com.example.hackAttemptService.model.PasswordHistory;
-import com.example.hackAttemptService.model.User;
+import com.example.hackAttemptService.model.entity.PasswordHistory;
+import com.example.hackAttemptService.model.entity.User;
 import com.example.hackAttemptService.service.PasswordService;
 import com.example.hackAttemptService.service.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;

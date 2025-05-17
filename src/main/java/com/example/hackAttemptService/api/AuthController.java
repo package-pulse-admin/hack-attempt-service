@@ -1,9 +1,9 @@
 package com.example.hackAttemptService.api;
 
-import com.example.hackAttemptService.api.config.JwtUtil;
+import com.example.hackAttemptService.utils.JwtUtil;
 import com.example.hackAttemptService.model.JwtResponse;
 import com.example.hackAttemptService.model.LoginRequest;
-import com.example.hackAttemptService.model.User;
+import com.example.hackAttemptService.model.entity.User;
 import com.example.hackAttemptService.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

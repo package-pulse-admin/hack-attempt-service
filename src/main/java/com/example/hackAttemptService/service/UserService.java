@@ -1,6 +1,6 @@
 package com.example.hackAttemptService.service;
 
-import com.example.hackAttemptService.model.User;
+import com.example.hackAttemptService.model.entity.User;
 import com.example.hackAttemptService.service.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

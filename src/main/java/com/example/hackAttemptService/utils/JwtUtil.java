@@ -1,4 +1,4 @@
-package com.example.hackAttemptService.api.config;
+package com.example.hackAttemptService.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

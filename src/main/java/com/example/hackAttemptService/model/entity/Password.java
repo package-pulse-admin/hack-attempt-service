@@ -1,4 +1,4 @@
-package com.example.hackAttemptService.model;
+package com.example.hackAttemptService.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

@@ -1,8 +1,8 @@
 package com.example.hackAttemptService.services;
 
-import com.example.hackAttemptService.model.Password;
-import com.example.hackAttemptService.model.PasswordHistory;
-import com.example.hackAttemptService.model.User;
+import com.example.hackAttemptService.model.entity.Password;
+import com.example.hackAttemptService.model.entity.PasswordHistory;
+import com.example.hackAttemptService.model.entity.User;
 import com.example.hackAttemptService.model.bruteForce.BruteForceRequest;
 import com.example.hackAttemptService.model.bruteForce.BruteForceResult;
 import com.example.hackAttemptService.service.PasswordLoader;
