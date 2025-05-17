@@ -11,5 +11,5 @@ public class BruteForceRequest {
     private String username;
     private String targetUrl;
     private int maxAtt;
-    private List<String> dictionary; // Optional: allow user to provide custom wordlist
+    private List<String> dictionary;
 }
