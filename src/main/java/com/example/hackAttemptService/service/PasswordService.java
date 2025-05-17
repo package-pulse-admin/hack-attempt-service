@@ -1,6 +1,11 @@
 package com.example.hackAttemptService.service;
 
 import com.example.hackAttemptService.model.*;
+import com.example.hackAttemptService.model.bruteForce.BruteForceRequest;
+import com.example.hackAttemptService.model.bruteForce.BruteForceResult;
+import com.example.hackAttemptService.service.repositories.PasswordHistoryRepository;
+import com.example.hackAttemptService.service.repositories.PasswordRepository;
+import com.example.hackAttemptService.service.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.example.hackAttemptService.service;
+package com.example.hackAttemptService.service.repositories;
 
 import com.example.hackAttemptService.model.PasswordHistory;
 import com.example.hackAttemptService.model.User;

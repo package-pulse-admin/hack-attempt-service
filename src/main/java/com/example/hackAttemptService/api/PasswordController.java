@@ -5,7 +5,7 @@ import com.example.hackAttemptService.model.PasswordDTO;
 import com.example.hackAttemptService.model.PasswordHistory;
 import com.example.hackAttemptService.model.User;
 import com.example.hackAttemptService.service.PasswordService;
-import com.example.hackAttemptService.service.UserRepository;
+import com.example.hackAttemptService.service.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

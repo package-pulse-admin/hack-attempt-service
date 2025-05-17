@@ -1,14 +1,16 @@
 package com.example.hackAttemptService.api;
 
-import com.example.hackAttemptService.model.Password;
 import com.example.hackAttemptService.model.PasswordHistory;
 import com.example.hackAttemptService.model.User;
 import com.example.hackAttemptService.service.PasswordService;
-import com.example.hackAttemptService.service.UserRepository;
+import com.example.hackAttemptService.service.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

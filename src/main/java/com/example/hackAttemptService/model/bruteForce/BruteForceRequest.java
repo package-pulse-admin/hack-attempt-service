@@ -1,4 +1,4 @@
-package com.example.hackAttemptService.model;
+package com.example.hackAttemptService.model.bruteForce;
 
 import lombok.Getter;
 import lombok.Setter;

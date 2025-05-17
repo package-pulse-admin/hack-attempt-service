@@ -1,7 +1,7 @@
 package com.example.hackAttemptService.api;
 
-import com.example.hackAttemptService.model.BruteForceRequest;
-import com.example.hackAttemptService.model.BruteForceResult;
+import com.example.hackAttemptService.model.bruteForce.BruteForceRequest;
+import com.example.hackAttemptService.model.bruteForce.BruteForceResult;
 import com.example.hackAttemptService.service.PasswordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
